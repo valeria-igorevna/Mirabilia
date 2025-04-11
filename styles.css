@@ -294,13 +294,14 @@ input[type="file"] {
 
 @media screen and (min-width: 300px) and (max-width: 1024px) {
 .img-label {
-    width: 120px;
-    height: 250px;
+    width: 70px;
+    height: 90px;
 }
 
 h1 {
-    font-size: 90px;
+    font-size: 60px;
     }
+}
 
 /*################################*/
 /*             FOOTER             */
