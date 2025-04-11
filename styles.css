@@ -292,6 +292,22 @@ input[type="file"] {
     display: block;
 }
 
+@media screen and (min-width: 300px) and (max-width: 1024px) {
+.img-label {
+    width: 130px;
+    height: 250px;
+    background-color: #40404084;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin: 2px;
+}
+    }
+
 /*################################*/
 /*             FOOTER             */
 /*################################*/
