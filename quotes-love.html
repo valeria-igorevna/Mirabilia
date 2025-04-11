@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Waterfall&display=swap" rel="stylesheet">
+<title>Kuvatekstit</title>
+
+    <style>
+
+* {
+    box-sizing: border-box;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 100px;
+}
+
+
+/*################################*/
+/*            TUMMA-TILA          */
+/*################################*/
+
+.dark-mode {
+    background-color: black;
+    color: aliceblue;  
+}
+
+#btn-dark {
+    position: fixed;
+    top: 20px;
+    right: 50px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 40%;
+    padding: 10px 30px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.dark-mode #btn-dark {
+    background-color: white; 
+    color: black; 
+}
+
+h1 {
+    color: black;
+    font-family: "Dancing Script", cursive;
+    margin-bottom: 40px;
+    font-size: 120px;  
+    letter-spacing: 10px;
+}
+
+.dark-mode h1 {
+    color: aliceblue;
+}
+
+.otsikko h2 {
+    color: black;
+    font-family: 'Cambria', 'Cochin', Georgia, Times, 'Times New Roman', serif;
+    margin-bottom: 20px;
+    font-size: 40px; 
+    text-align: center;
+    font-style: italic;
+}
+
+.dark-mode h2{
+    color: aliceblue;
+}
+
+.otsikko p {
+    color: rgb(0, 0, 0);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-bottom: 40px;
+    font-size: 25px;  
+    text-align: center;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.dark-mode p{
+    color: aliceblue;
+}
+
+h3{
+    color: #000000;
+    font-family: 'Cambria', 'Cochin', Georgia, Times, 'Times New Roman', serif;
+    margin-bottom: 20px;
+    font-size: 30px; 
+    text-align: center;
+}
+
+.dark-mode h3{
+    color: aliceblue;
+}
+
+.dark-mode .quote p{
+    color: aliceblue;
+}
+
+/*################################*/
+/*             NAVI               */
+/*################################*/
+
+.sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 70px;
+            z-index: 1;
+            background-color: rgba(242, 178, 178, 0.778);
+            overflow-x: hidden;
+            padding-top: 10px;
+            transition: 0.6s ease;
+            box-shadow: 0 0 10px rgba(0, 0, 0,0,5);
+        }
+
+        .sidebar:hover {
+            width: 200px;
+            transition: 0.6s ease;
+        }
+
+        .sidebar ul {
+            position: relative;
+            height: 97vh;
+        }
+
+        .sidebar ul li {
+            list-style: none;
+            margin: 5px 0;
+            font-family: 'Cambria', 'Cochin', Georgia, Times, 'Times New Roman', serif;
+        }
+
+        .sidebar ul li:hover {
+            background: rgb(255, 255, 255);
+            transition: 0.3s ease;
+        }
+
+        .sidebar ul li a {
+            position: relative;
+            display: flex;
+            white-space: nowrap;
+            text-decoration: none;
+        }
+
+        .sidebar ul li a .icon {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-width: 75px;
+            height: 60px;
+            font-size: 22px;
+        }
+
+        .sidebar ul li a .text {
+            position: relative;
+            display: flex;
+            align-items: center;
+            height: 60px;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            font-weight: 500;
+            color: #000000;
+        }
+
+/*################################*/
+/*             ALAVALIKKO         */
+/*################################*/
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(242, 178, 178, 0.778);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    font-size: 20px;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f0efefdb;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/*################################*/
+/*             MOBIILI NAVI       */
+/*################################*/
+  
+.hamburger {
+    display: none; /* Hide by default */
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: rgba(242, 178, 178, 0.778);
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.hamburger div {
+    width: 30px;
+    height: 4px;
+    background-color: black;
+    margin: 5px 0;
+    transition: 0.3s ease;
+}
+
+/* Piilottaa sidebar:in mobiilissa */
+@media screen and (min-width: 300px) and (max-width: 1024px) {
+    .sidebar {
+        display: none; /* piilottaa sidebaarin */
+    }
+
+    .sidebar.active {
+        display: block; /* Näyttää sidebaarin kun aktiivinen */
+        width: 200px; 
+        transition: 0.3s ease;
+    }
+
+    .hamburger {
+        display: block; /* Show the hamburger icon */
+    }
+}
+
+ /*################################*/
+/*             NAPIT              */
+/*################################*/
+
+.button #prev, #next{
+    border-radius: 50%;
+    background-color: rgba(242, 178, 178, 0.778);
+    height: 100px;
+    width: 100px;
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+    border: 2px solid rgb(118, 118, 118);
+}
+
+.button a {
+    text-decoration: none;
+}
+
+
+
+ /*################################*/
+/*             TEKSTIT            */
+/*################################*/
+
+.quote-container {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    padding: 30px;
+}
+
+.quote {
+    flex: 1 1 0;
+    padding: 10px;
+}
+
+.quote p {
+    font-size: 25px;
+    color: #000000;
+    padding: 20px;
+}
+
+.quote .vasen p {
+    font-size: 25px;
+    padding: 20px;
+}
+
+.quote .keski p {
+    font-size: 25px;
+    padding: 20px;
+}
+
+.quote .oikea p {
+    font-size: 25px;
+    padding: 20px;
+}
+
+@media screen and (min-width: 300px) and (max-width: 1024px){
+    .quote-container {
+        display:block;
+        width: 100%;
+        text-align: left;
+}
+}
+
+/*################################*/
+/*             FOOTER             */
+/*################################*/
+
+footer {
+    position:inherit;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(242, 178, 178, 0.778);
+}
+
+footer p{
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+}
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Mirabilia</h1>
+    </header>
+
+    <div class="sidebar">
+        <ul>
+            <li> 
+                <a href="index.html" class="Home">
+                    <span class="icon"><i class="fa-solid fa-home" style="color: #000000; font-size: 50px;">&#8962;</i></span>
+                    <span class="text" style="color: #000000; font-size: 16px;">Koti</span>
+                </a>
+            </li>
+            <li>
+                <a href="inspiration.html">
+                    <span class="icon"><i class="fa-solid fa-inspo"></i></span>
+                    <span class="text">Väripaletti</span>
+                </a>
+            </li>
+            <li class="dropdown">
+                <a href="quotes-everyday.html">
+                    <span class="icon"><i class="fa-solid fa-quotes"></i></span>
+                    <span class="text">Kuvatekstit</span>
+                </a>
+                <div class="dropdown-content">
+                    <a href="quotes-everyday.html">Everyday</a>
+                    <a href="quotes-seasons.html">Seasons</a>
+                    <a href="quotes-love.html">Love</a>
+                </div>
+            </li>
+        </ul>
+    </div> 
+
+    <!-- Hamburger Icon -->
+    <!--Alla olevat kolme tyhjää diviä toimivat hampurilaisen viivoina. ÄLÄ poista!-->
+<button class="hamburger" id="hamburger"> 
+    <div></div>
+    <div></div>
+    <div></div>
+</button>
+
+    <button id="btn-dark" onclick="darkMode()">&#9788;</button>
+
+    <div class="otsikko">
+    <h2>Love</h2>
+
+    <div class="button">
+        <button id="prev" style="font-size: 40px;"><a href="quotes-everyday.html" style="color: rgb(69, 69, 69);">&#11164;</a></button>
+        <button id="next" style="font-size: 40px;"><a href="quotes-seasons.html" style="color: rgb(69, 69, 69);">&#11166;</a></button>
+    </div>
+
+    <h3></h3>
+    </div>
+
+    <div class="quote-container">
+        <div class="quote vasen">
+            <p>"You know you’re in love when you can’t fall asleep because reality is finally better than your dreams." – Dr. Seuss</p>
+            <p>"Love is like the wind, you can’t see it but you can feel it." – Nicholas Sparks</p>
+            <p>"Love is the magician that pulls man out of his own hat." – Ben Hecht</p>
+            <p>"The best love is the kind that awakens the soul; that makes us reach for more, that plants the fire in our hearts and brings peace to our minds. That’s what I hope to give you forever." – Noah from The Notebook</p>
+            <p>"I would rather spend one lifetime with you, than face all the ages of this world alone." – J.R.R. Tolkien</p>
+            <p>"To be your friend was all I ever wanted; to be your lover was all I ever dreamed." – Valerie Lombardo</p>
+            <p>"My wish is that you may be loved to the point of madness." – André Breton</p>
+            <p>"A purpose of human life, no matter who is controlling it, is to love whoever is around to be loved." – Kurt Vonnegut</p>
+        </div>
+ 
+        <hr>
+
+        <div class="quote keski">
+            <p>"Romance is the glamour which turns the dust of everyday life into a golden haze." – Elinor Glyn</p>
+            <p>"Love is always patient and kind. It is never jealous. Love is never boastful or conceited. It is never rude or selfish. It does not take offense and is not resentful. Love takes no pleasure in other people’s sins, but delights in the truth. It is always ready to excuse, to trust, to hope, and to endure whatever comes." – 1 Corinthians 13:4-7</p>
+            <p>"Love is the strange bewilderment which overtakes one person on account of another person." – James Thurber</p>
+            <p>"One word frees us of all the weight and pain of life: that word is love." – Sophocles</p>
+            <p>"Flatter me, and I may not believe you. Criticize me, and I may not like you. Ignore me, and I may not forgive you. Encourage me, and I will not forget you. Love me and I may be forced to love you." – William Arthur Ward</p>
+            <p>"So, I love you because the entire universe conspired to help me find you." – Paulo Coelho</p>
+            <p>“I love you more than coffee, but please don’t make me prove it.” – Elizabeth Evans</p>
+        </div>
+
+        <hr>
+
+        <div class="quote oikea">
+            <p>“This has been my life; I found it worth living.” – Bertrand Russell</p>
+            <p>"“Love many things, for therein lies the true strength, and whosoever loves much performs much, and can accomplish much, and what is done in love is done well.” – Vincent van Gogh</p>
+            <p>“A life lived in love will never be dull.” – Leo Buscaglia</p>
+            <p>"Be happy with being you. Love your flaws. Own your quirks. And know that you are just as perfect as anyone else, exactly as you are." - Ariana Grande</p>
+            <p>“All you need is love.” – Paul McCartney</p>
+            <p>“Darkness cannot drive out darkness: only light can do that. Hate cannot drive out hate: only love can do that.” – Martin Luther King Jr.</p>
+            <p>“Love is sharing your popcorn.” – Charles Schultz</p>
+            <p>“We’re all a little weird. And life is a little weird. And when we find someone whose weirdness is compatible with ours, we join up with them and fall into mutually satisfying weirdness—and call it love—true love.” – Robert Fulghum</p>
+            <p>“What the world really needs is more love and less paperwork.” – Pearl Bailey</p>
+        </div>
+    </div>
+
+<script src="script.js"></script>
+
+<footer class="footer">
+    <p> &copy Valette <br> GitHub: valeria-igorevna <br> Kynttilät: <a href="https://www.instagram.com/valette.fi/" style="color: rgb(108, 108, 108);">@valette.fi</a></p>
+</footer>
+
+</body>
+</html>

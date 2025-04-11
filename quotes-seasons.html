@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Waterfall&display=swap" rel="stylesheet">
+<title>Kuvatekstit</title>
+
+    <style>
+
+* {
+    box-sizing: border-box;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 100px;
+}
+
+
+/*################################*/
+/*            TUMMA-TILA          */
+/*################################*/
+
+.dark-mode {
+    background-color: black;
+    color: aliceblue;  
+}
+
+#btn-dark {
+    position: fixed;
+    top: 20px;
+    right: 50px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 40%;
+    padding: 10px 30px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.dark-mode #btn-dark {
+    background-color: white; 
+    color: black; 
+}
+
+h1 {
+    color: black;
+    font-family: "Dancing Script", cursive;
+    margin-bottom: 40px;
+    font-size: 120px;  
+    letter-spacing: 10px; 
+}
+
+.dark-mode h1 {
+    color: aliceblue;
+}
+
+.otsikko h2 {
+    color: black;
+    font-family: 'Cambria', 'Cochin', Georgia, Times, 'Times New Roman', serif;
+    font-style: italic;
+    margin-bottom: 20px;
+    font-size: 40px; 
+    text-align: center;
+}
+
+.dark-mode h2{
+    color: aliceblue;
+}
+
+.otsikko p {
+    color: rgb(0, 0, 0);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-bottom: 40px;
+    font-size: 25px;  
+    text-align: center;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.dark-mode p{
+    color: aliceblue;
+}
+
+h3{
+    color: #000000;
+    font-family: 'Cambria', 'Cochin', Georgia, Times, 'Times New Roman', serif;
+    margin-bottom: 20px;
+    font-size: 30px; 
+    text-align: center;
+}
+
+.dark-mode h3{
+    color: aliceblue;
+}
+
+.dark-mode .quote p{
+    color: aliceblue;
+}
+
+/*################################*/
+/*             NAVI               */
+/*################################*/
+
+.sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 70px;
+            z-index: 1;
+            background-color: rgba(242, 178, 178, 0.778);
+            overflow-x: hidden;
+            padding-top: 10px;
+            transition: 0.6s ease;
+            box-shadow: 0 0 10px rgba(0, 0, 0,0,5);
+        }
+
+        .sidebar:hover {
+            width: 200px;
+            transition: 0.6s ease;
+        }
+
+        .sidebar ul {
+            position: relative;
+            height: 97vh;
+        }
+
+        .sidebar ul li {
+            list-style: none;
+            margin: 5px 0;
+            font-family: 'Cambria', 'Cochin', Georgia, Times, 'Times New Roman', serif;
+        }
+
+        .sidebar ul li:hover {
+            background: rgb(255, 255, 255);
+            transition: 0.3s ease;
+        }
+
+        .sidebar ul li a {
+            position: relative;
+            display: flex;
+            white-space: nowrap;
+            text-decoration: none;
+        }
+
+        .sidebar ul li a .icon {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-width: 75px;
+            height: 60px;
+            font-size: 22px;
+        }
+
+        .sidebar ul li a .text {
+            position: relative;
+            display: flex;
+            align-items: center;
+            height: 60px;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            font-weight: 500;
+            color: #000000;
+        }
+
+/*################################*/
+/*             ALAVALIKKO         */
+/*################################*/
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(242, 178, 178, 0.778);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    font-size: 20px;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f0efefdb;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+/*################################*/
+/*             MOBIILI NAVI       */
+/*################################*/
+  
+.hamburger {
+    display: none; /* Hide by default */
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: rgba(242, 178, 178, 0.778);
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.hamburger div {
+    width: 30px;
+    height: 4px;
+    background-color: black;
+    margin: 5px 0;
+    transition: 0.3s ease;
+}
+
+/* Piilottaa sidebar:in mobiilissa */
+@media screen and (min-width: 300px) and (max-width: 1024px) {
+    .sidebar {
+        display: none; /* piilottaa sidebaarin */
+    }
+
+    .sidebar.active {
+        display: block; /* Näyttää sidebaarin kun aktiivinen */
+        width: 200px; 
+        transition: 0.3s ease;
+    }
+
+    .hamburger {
+        display: block; /* Show the hamburger icon */
+    }
+}
+ /*################################*/
+/*             NAPIT              */
+/*################################*/
+
+.button #prev, #next{
+    border-radius: 50%;
+    background-color: rgba(242, 178, 178, 0.778);
+    height: 100px;
+    width: 100px;
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+    border: 2px solid rgb(118, 118, 118);
+}
+
+.button a {
+    text-decoration: none;
+}
+
+
+
+ /*################################*/
+/*             TEKSTIT            */
+/*################################*/
+
+.quote-container {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    padding: 20px;
+}
+
+h2 {
+    color: #000000;
+    text-align: center;
+    font-size: 30px;
+}
+
+.quote {
+    flex: 1 1 0;
+    padding: 10px;
+}
+
+.quote p {
+    font-size: 25px;
+    color: #000000;
+    padding: 20px;
+}
+
+.quote .vasen p {
+    font-size: 25px;
+    padding: 20px;
+}
+
+.quote .keski p {
+    font-size: 25px;
+    padding: 20px;
+}
+
+@media screen and (min-width: 300px) and (max-width: 1024px){
+    .quote-container {
+        display:block;
+        width: 100%;
+        text-align: left;
+}
+}
+
+/*################################*/
+/*             FOOTER             */
+/*################################*/
+
+footer {
+    position:inherit;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(242, 178, 178, 0.778);
+}
+
+footer p{
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+}
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Mirabilia</h1>
+    </header>
+
+    <div class="sidebar">
+        <ul>
+            <li> 
+                <a href="index.html" class="Home">
+                    <span class="icon"><i class="fa-solid fa-home" style="color: #000000; font-size: 50px;">&#8962;</i></span>
+                    <span class="text" style="color: #000000; font-size: 16px;">Koti</span>
+                </a>
+            </li>
+            <li>
+                <a href="inspiration.html">
+                    <span class="icon"><i class="fa-solid fa-inspo"></i></span>
+                    <span class="text">Väripaletti</span>
+                </a>
+            </li>
+            <li class="dropdown">
+                <a href="quotes-everyday.html">
+                    <span class="icon"><i class="fa-solid fa-quotes"></i></span>
+                    <span class="text">Kuvatekstit</span>
+                </a>
+                <div class="dropdown-content">
+                    <a href="quotes-everyday.html">Everyday</a>
+                    <a href="quotes-seasons.html">Seasons</a>
+                    <a href="quotes-love.html">Love</a>
+                </div>
+            </li>
+        </ul>
+    </div>  
+
+        <!-- Hamburger Icon -->
+     <!--Alla olevat kolme tyhjää diviä toimivat hampurilaisen viivoina. ÄLÄ poista!-->
+<button class="hamburger" id="hamburger"> 
+    <div></div>
+    <div></div>
+    <div></div>
+</button>
+
+    <button id="btn-dark" onclick="darkMode()">&#9788;</button>
+
+    <div class="otsikko">
+    <h2>Seasons</h2>
+
+    <div class="button">
+        <button id="prev" style="font-size: 40px;"><a href="quotes-love.html" style="color: rgb(69, 69, 69);">&#11164;</a></button>
+        <button id="next" style="font-size: 40px;"><a href="quotes-everyday.html" style="color: rgb(69, 69, 69);">&#11166;</a></button>
+    </div>
+
+    <h3></h3>
+    </div>
+
+    <div class="quote-container">
+        <div class="quote vasen">
+            <h2>Summer</h2>
+            <p>"Summer: the season of new beginnings and endless possibilities."</p>
+            <p>"In full swing for summer - where our ideas shine brighter."</p>
+            <p>"From flip-flops to flip charts – our summer workstyle."</p>
+            <p>"Feeling as carefree as a summer breeze."</p>
+            <p>"The sun is shining, and so are our ideas."</p>
+            <p>"From beach trips to business trips; that's how we roll in the summertime."</p>
+            <p>"Find us where the sand meets the sea and creativity meets innovation."</p>
+            <p>"Life is better with a little bit of sunshine and a lot of innovation."</p>
+            <p>"Sunny days call for sunny ideas."</p>
+            <p>"We're soaking up the summer sun and turning it into success."</p>
+            <p>"Sun-kissed goals and beachy vibes for a productive summer."</p>
+            <p>"Embracing the summer sun as we fuel our innovative spirit."</p>
+        </div>
+        
+        <hr>
+
+        <div class="quote keski">
+            <h2>Autumn</h2>
+            <p>“The only thing I love more than fall is pumpkin spice.”</p>
+            <p>“And the sun took a step back, the leaves lulled themselves to sleep and autumn was awakened.” <br>— Raquel Franco</p> 
+            <p>"Leaves may change, but our dedication to excellence remains constant."</p>
+            <p>“I’m so glad I live in a world where there are Octobers.” <br>— L.M. Montgomery"</p>
+            <p>“It’s just my favorite time of the year. The whole world changes color.” <br>— Gilmore Girls</p>
+            <p>“A wind has blown the rain away and blown the sky away and all the leaves away, and the trees stand. I think, I too, have known autumn too long.” — E. E. Cummings</p>
+            <p>“It looked like the world was covered in a cobbler crust of brown sugar and cinnamon.” <br>— Sarah Addison Allen</p>
+            <p>“Every pumpkin needs a little spice.”</p>
+            <p>“In the entire circle of the year, there is no time so delightful as the first afternoon in autumn.”</p>
+            <p>“I’m just here for the fall decorations and the pumpkin spice lattes.”</p>
+            <p>“Sweater weather is better together.”</p>
+            <p>“Fall is my favorite color.”</p>
+        </div>
+
+        <hr>
+
+        <div class="quote oikea">
+            <h2>Winter</h2>
+            <p>“Winter is on my head, but eternal spring is in my heart.” <br>— Victor Hugo</p>
+            <p>“There’s nothing better than curling up with a good book and sitting in front of the fire on winter evenings.” <br>— Leo Sayer</p>
+
+            <p>“Winter is not a season, it’s a celebration.” <br>— Anamika Mishra</p>
+            <p>“Snowflakes are one of nature’s most fragile things, but just look what they can do when they stick together.” <br>— Vesta Kelly</p>
+            <p>“Every avalanche begins with the movement of a single snowflake, and my hope is to move a snowflake.” <br>― Thomas Frey</p>
+            <p>“A snowball in the face is surely the perfect beginning to a lasting friendship.” <br>― Markus Zusak, The Book Thief</p>
+            <p>“Melancholy were the sounds on a winter's night.” <br>― Virginia Woolf, Jacob's Room</p>
+            <p>“The heart can get really cold if all you've known is winter.” <br>― Benjamin Alire Sáenz, Last Night I Sang to the Monster</p>
+            <p>“Because the birdsong might be pretty, <br>
+                But it's not for you they sing, <br>
+                And if you think my winter is too cold, <br>
+                You don't deserve my spring.”<br>
+                ― Erin Hanson</p>
+        </div>
+    </div>
+
+<script src="script.js"></script>
+
+<footer class="footer">
+    <p> &copy Valette <br> GitHub: valeria-igorevna <br> Kynttilät: <a href="https://www.instagram.com/valette.fi/" style="color: rgb(108, 108, 108);">@valette.fi</a></p>
+</footer>
+
+</body>
+</html>

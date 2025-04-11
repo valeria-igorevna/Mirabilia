@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Waterfall&display=swap" rel="stylesheet">
+<title>Kuvatekstit</title>
+
+    <style>
+
+* {
+    box-sizing: border-box;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 100px;
+}
+
+
+/*################################*/
+/*            TUMMA-TILA          */
+/*################################*/
+
+.dark-mode {
+    background-color: black;
+    color: aliceblue;  
+}
+
+#btn-dark {
+    position: fixed;
+    top: 20px;
+    right: 50px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 40%;
+    padding: 10px 30px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.dark-mode #btn-dark {
+    background-color: white; 
+    color: black; 
+}
+
+h1 {
+    color: black;
+    font-family: "Dancing Script", cursive;
+    margin-bottom: 40px;
+    font-size: 120px;  
+    letter-spacing: 10px;
+}
+
+.dark-mode h1 {
+    color: aliceblue;
+}
+
+.otsikko h2 {
+    color: black;
+    font-family: 'Cambria', 'Cochin', Georgia, Times, 'Times New Roman', serif;
+    margin-bottom: 20px;
+    font-size: 40px; 
+    text-align: center;
+    font-style: italic;
+}
+
+.dark-mode h2{
+    color: aliceblue;
+}
+
+.otsikko p {
+    color: rgb(0, 0, 0);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-bottom: 40px;
+    font-size: 25px;  
+    text-align: center;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.dark-mode p{
+    color: aliceblue;
+}
+
+h3{
+    color: #000000;
+    font-family: 'Cambria', 'Cochin', Georgia, Times, 'Times New Roman', serif;
+    margin-bottom: 20px;
+    font-size: 30px; 
+    text-align: center;
+}
+
+.dark-mode h3{
+    color: aliceblue;
+}
+
+.dark-mode .quote p{
+    color: aliceblue;
+}
+
+/*################################*/
+/*             NAVI               */
+/*################################*/
+
+.sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 70px;
+            z-index: 1;
+            background-color: rgba(242, 178, 178, 0.778);
+            overflow-x: hidden;
+            padding-top: 10px;
+            transition: 0.6s ease;
+            box-shadow: 0 0 10px rgba(0, 0, 0,0,5);
+        }
+
+        .sidebar:hover {
+            width: 200px;
+            transition: 0.6s ease;
+        }
+
+        .sidebar ul {
+            position: relative;
+            height: 97vh;
+        }
+
+        .sidebar ul li {
+            list-style: none;
+            margin: 5px 0;
+            font-family: 'Cambria', 'Cochin', Georgia, Times, 'Times New Roman', serif;
+        }
+
+        .sidebar ul li:hover {
+            background: rgb(255, 255, 255);
+            transition: 0.3s ease;
+        }
+
+        .sidebar ul li a {
+            position: relative;
+            display: flex;
+            white-space: nowrap;
+            text-decoration: none;
+        }
+
+        .sidebar ul li a .icon {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-width: 75px;
+            height: 60px;
+            font-size: 22px;
+        }
+
+        .sidebar ul li a .text {
+            position: relative;
+            display: flex;
+            align-items: center;
+            height: 60px;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            font-weight: 500;
+            color: #000000;
+        }
+
+/*################################*/
+/*             ALAVALIKKO         */
+/*################################*/
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(242, 178, 178, 0.778);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    font-size: 20px;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f0efefdb;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+/*################################*/
+/*             MOBIILI NAVI       */
+/*################################*/
+  
+.hamburger {
+    display: none; /* Hide by default */
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: rgba(242, 178, 178, 0.778);
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.hamburger div {
+    width: 30px;
+    height: 4px;
+    background-color: black;
+    margin: 5px 0;
+    transition: 0.3s ease;
+}
+
+/* Piilottaa sidebar:in mobiilissa */
+@media screen and (min-width: 300px) and (max-width: 1024px) {
+    .sidebar {
+        display: none; /* piilottaa sidebaarin */
+    }
+
+    .sidebar.active {
+        display: block; /* Näyttää sidebaarin kun aktiivinen */
+        width: 200px; 
+        transition: 0.3s ease;
+    }
+
+    .hamburger {
+        display: block; /* Show the hamburger icon */
+    }
+}
+
+ /*################################*/
+/*             NAPIT              */
+/*################################*/
+
+.button #prev, #next{
+    border-radius: 50%;
+    background-color: rgba(242, 178, 178, 0.778);
+    height: 100px;
+    width: 100px;
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+    border: 2px solid rgb(118, 118, 118);
+}
+
+.button a {
+    text-decoration: none;
+}
+
+
+
+ /*################################*/
+/*             TEKSTIT            */
+/*################################*/
+
+.quote-container {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    padding: 20px;
+}
+
+.quote {
+    flex: 1 1 1;
+    padding: 10px;
+}
+
+.quote p {
+    font-size: 25px;
+    color: #000000;
+    padding: 20px;
+}
+
+.quote .vasen p {
+    font-size: 25px;
+    padding: 20px;
+}
+
+.quote .keski p {
+    font-size: 25px;
+    padding: 20px;
+}
+
+
+@media screen and (min-width: 300px) and (max-width: 1024px){
+    .quote-container {
+        display:block;
+        width: 100%;
+        text-align: left;
+}
+}
+
+/*################################*/
+/*             FOOTER             */
+/*################################*/
+
+footer {
+    position:inherit;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(242, 178, 178, 0.778);
+}
+
+footer p{
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+}
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Mirabilia</h1>
+    </header>
+
+    <div class="sidebar">
+        <ul>
+            <li> 
+                <a href="index.html" class="Home">
+                    <span class="icon"><i class="fa-solid fa-home" style="color: #000000; font-size: 50px;">&#8962;</i></span>
+                    <span class="text" style="color: #000000; font-size: 16px;">Koti</span>
+                </a>
+            </li>
+            <li>
+                <a href="inspiration.html">
+                    <span class="icon"><i class="fa-solid fa-inspo"></i></span>
+                    <span class="text">Väripaletti</span>
+                </a>
+            </li>
+            <li class="dropdown">
+                <a href="quotes.html">
+                    <span class="icon"><i class="fa-solid fa-quotes"></i></span>
+                    <span class="text">Kuvatekstit</span>
+                </a>
+                <div class="dropdown-content">
+                    <a href="quotes-everyday.html">Everyday</a>
+                    <a href="quotes-seasons.html">Seasons</a>
+                    <a href="quotes-love.html">Love</a>
+                </div>
+            </li>
+        </ul>
+    </div> 
+    
+    <!-- Hamburger Icon -->
+    <!--Alla olevat kolme tyhjää diviä toimivat hampurilaisen viivoina. ÄLÄ poista!-->
+<button class="hamburger" id="hamburger"> 
+    <div></div>
+    <div></div>
+    <div></div>
+</button>
+
+    <button id="btn-dark" onclick="darkMode()">&#9788;</button>
+
+    <div class="otsikko">
+    <h2>Everyday</h2>
+    <p>Tarvitsetko apua täydellisen kuvatekstin keksimiseen? <br> Täältä löydät englanninkielisiä tekstejä, joita voit käyttää omissa julkaisuissa.</p>
+    </div>
+
+    <div class="button">
+        <button id="prev" style="font-size: 40px;"><a href="quotes-seasons.html" style="color: rgb(69, 69, 69);">&#11164;</a></button>
+        <button id="next" style="font-size: 40px;"><a href="quotes-love.html" style="color: rgb(69, 69, 69);">&#11166;</a></button>
+    </div>
+
+    
+    <h3></h3>
+
+    <div class="quote-container">
+        <div class="quote vasen">
+            <p>"Adventure awaits around every corner."</p>
+            <p>"Living our best life by taking the scenic route."</p>
+            <p>"Making waves wherever I go."</p>
+            <p>"Chasing dreams and making memories."</p>
+            <p>"Love and laughter are my constants."</p>
+            <p>"Creating my own sunshine wherever I go."</p>
+            <p>"Finding beauty in the simple things."</p>
+            <p>"Chasing sunsets and dreams."</p>
+            <p>"Let positivity be your guide."</p>
+            <p>"Smiling through it all."</p>
+            <p>"Living life, one adventure at a time."</p>
+        </div>
+ 
+        <hr>
+
+        <div class="quote keski">
+            <p>"Grateful for the little things."</p>
+            <p>"Here for a good time and a long time."</p>
+            <p>"Creating my own sunshine."</p>
+            <p>"Radiating positivity and good vibes."</p>
+            <p>"In a world of possibilities."</p>
+            <p>"Sunny days and good vibes."</p>
+            <p>"Making every day a new adventure."</p>
+            <p>"Life's too short not to smile."</p>
+            <p>"Dream big, sparkle more."</p>
+            <p>"Lost in wanderlust."</p>
+            <p>"Life is a beautiful ride."</p>
+        </div>
+
+        <hr>
+
+        <div class="quote oikea">
+            <p>"Embracing the journey, one step at a time."</p>
+            <p>"Making memories in every moment."</p>
+            <p>"Collecting moments, not things."</p>
+            <p>"Adventure is calling, I must go."</p>
+            <p>"Spreading kindness like confetti."</p>
+            <p>"Happiness is homemade."</p>
+            <p>"Happiness looks good on me."</p>
+            <p>"Sunsets and good vibes."</p>
+            <p>"Living life, loving life."</p>
+            <p>"Blessed and grateful every day."</p>
+            <p>"Finding joy in the ordinary."</p>
+            <p>"Embracing the beauty of imperfection."</p>
+        </div>
+    </div>
+
+<script src="script.js"></script>
+
+<footer class="footer">
+    <p> &copy Valette <br> GitHub: valeria-igorevna <br> Kynttilät: <a href="https://www.instagram.com/valette.fi/" style="color: rgb(108, 108, 108);">@valette.fi</a></p>
+</footer>
+
+</body>
+</html>

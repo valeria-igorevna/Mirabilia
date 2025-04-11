@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+    <title>Mirabilia</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+   
+   
+    <header>
+        <h1>Mirabilia</h1>
+        <!--<button id="hamburger-menu" class="hamburger-menu">
+            &#9776;
+        </button>-->
+    </header>
+
+
+
+
+
+
+
+
+
+
+    <!--NAVI-->
+    <div class="sidebar">
+        <ul>
+            <li>
+                <a href="index.html" class="Home">
+                    <span class="icon"><i class="fa-solid fa-home" style="color: #000000; font-size: 50px;">&#8962;</i></span>
+                    <span class="text" style="color: #000000; font-size: 16px;">Koti</span>
+                </a>
+            </li>
+            <li>
+                <a href="inspiration.html">
+                    <span class="icon"><i class="fa-solid fa-inspo"></i></span>
+                    <span class="text">Väripaletti</span>
+                </a>
+            </li>
+            <li class="dropdown">
+                <a href="quotes-everyday.html">
+                    <span class="icon"><i class="fa-solid fa-quotes"></i></span>
+                    <span class="text">Kuvatekstit</span>
+                </a>
+                <div class="dropdown-content">
+                    <a href="quotes-everyday.html">Everyday</a>
+                    <a href="quotes-seasons.html">Seasons</a>
+                    <a href="quotes-love.html">Love</a>
+                </div>
+            </li>
+        </ul>
+    </div> 
+
+    <!-- Hamburger Icon -->
+     <!--Alla olevat kolme tyhjää diviä toimivat hampurilaisen viivoina. ÄLÄ poista!-->
+<button class="hamburger" id="hamburger"> 
+    <div></div>
+    <div></div>
+    <div></div>
+</button>
+
+<!--TUMMA-TILA-->
+    <button id="btn-dark" onclick="darkMode()">&#9788;</button>
+    
+<!--Alaotsikko-->    
+    <p>Sukella värien ja tyylien maailmaan suunnittelemalla visuaalisesti kiehtova ja uniikki Instagram-profiili! <br> <i style="color: #000000; font-weight: bold;" >Mirabiliassa</i> voit suunnitella ja rakentaa fiidin, inspiroitua kauniista väripaleteista sekä selata erilaisia kuvatekstejä.</p>
+
+    
+    
+    
+    
+    
+    <!--STOORIT ALKAA TÄSTÄ-->
+    <div class="story">
+        <div class="story-item">
+            <label for="story-input-1" class="story-label" id="story-label-1">+</label>
+            <input type="file" id="story-input-1" class="story-input" accept="image/*" onchange="loadStory(event, 1)">
+            <button class="delete-btn" onclick="deleteStoryImage(1)">X</button>
+        </div>
+        <div class="story-item">
+            <label for="story-input-2" class="story-label" id="story-label-2">+</label>
+            <input type="file" id="story-input-2" class="story-input" accept="image/*" onchange="loadStory(event, 2)">
+            <button class="delete-btn" onclick="deleteStoryImage(2)">X</button>
+        </div>
+        <div class="story-item">
+            <label for="story-input-3" class="story-label" id="story-label-3">+</label>
+            <input type="file" id="story-input-3" class="story-input" accept="image/*" onchange="loadStory(event, 3)">
+            <button class="delete-btn" onclick="deleteStoryImage(3)">X</button>
+        </div>
+    </div>
+
+
+
+
+    <!--VÄLIVIIVA-->
+    <hr style="color: rgb(0, 0, 0); width: 730px; margin-top: 15px;">
+
+
+
+
+    <!--GALLERIA ALKAA TÄSTÄ-->
+    <div class="Galleria">
+        <div class="gallery-item">
+            <label for="img-input-1" class="img-label" id="img-label-1">+</label>
+            <input type="file" id="img-input-1" class="img-input" accept="image/*" onchange="loadPhotoImage(event, 1)">
+            <button class="delete-btn" onclick="deleteGalleryImage(1)">X</button>
+        </div>
+        <div class="gallery-item">
+            <label for="img-input-2" class="img-label" id="img-label-2">+</label>
+            <input type="file" id="img-input-2" class="img-input" accept="image/*" onchange="loadPhotoImage(event, 2)">
+            <button class="delete-btn" onclick="deleteGalleryImage(2)">X</button>
+        </div>
+        <div class="gallery-item">
+            <label for="img-input-3" class="img-label" id="img-label-3">+</label>
+            <input type="file" id="img-input-3" class="img-input" accept="image/*" onchange="loadPhotoImage(event, 3)">
+            <button class="delete-btn" onclick="deleteGalleryImage(3)">X</button>
+        </div>
+        <div class="gallery-item">
+            <label for="img-input-4" class="img-label" id="img-label-4">+</label>
+            <input type="file" id="img-input-4" class="img-input" accept="image/*" onchange="loadPhotoImage(event, 4)">
+            <button class="delete-btn" onclick="deleteGalleryImage(4)">X</button>
+        </div>
+        <div class="gallery-item">
+            <label for="img-input-5" class="img-label" id="img-label-5">+</label>
+            <input type="file" id="img-input-5" class="img-input" accept="image/*" onchange="loadPhotoImage(event, 5)">
+            <button class="delete-btn" onclick="deleteGalleryImage(5)">X</button>
+        </div>
+        <div class="gallery-item">
+            <label for="img-input-6" class="img-label" id="img-label-6">+</label>
+            <input type="file" id="img-input-6" class="img-input" accept="image/*" onchange="loadPhotoImage(event, 6)">
+            <button class="delete-btn" onclick="deleteGalleryImage(6)">X</button>
+        </div>
+        <div class="gallery-item">
+            <label for="img-input-7" class="img-label" id="img-label-7">+</label>
+            <input type="file" id="img-input-7" class="img-input" accept="image/*" onchange="loadPhotoImage(event, 7)">
+            <button class="delete-btn" onclick="deleteGalleryImage(7)">X</button>
+        </div>
+        <div class="gallery-item">
+            <label for="img-input-8" class="img-label" id="img-label-8">+</label>
+            <input type="file" id="img-input-8" class="img-input" accept="image/*" onchange="loadPhotoImage(event, 8)">
+            <button class="delete-btn" onclick="deleteGalleryImage(8)">X</button>
+        </div>
+        <div class="gallery-item">
+            <label for="img-input-9" class="img-label" id="img-label-9">+</label>
+            <input type="file" id="img-input-9" class="img-input" accept="image/*" onchange="loadPhotoImage(event, 9)">
+            <button class="delete-btn" onclick="deleteGalleryImage(9)">X</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+    <footer class="footer">
+        <p> &copy Valette <br> GitHub: valeria-igorevna <br> Kynttilät: <a href="https://www.instagram.com/valette.fi/" style="color: rgb(108, 108, 108);">@valette.fi</a></p>
+    </footer>
+</body>
+</html>

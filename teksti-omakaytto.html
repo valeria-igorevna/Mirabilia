@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Waterfall&display=swap" rel="stylesheet">
+<title>Quotes</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            color: white;
+            margin: 0;
+            padding: 0;
+
+        }
+
+        body {
+            background-image: url(bg.jpg);
+            font-family:"Waterfall", cursive;
+            font-optical-sizing: auto;
+  font-style: normal;
+        }
+
+/*################################*/
+/*             NAVI               */
+/*################################*/
+
+.sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 70px;
+            z-index: 1;
+            background-color: rgba(242, 178, 178, 0.778);
+            overflow-x: hidden;
+            padding-top: 10px;
+            transition: 0.6s ease;
+            box-shadow: 0 0 10px rgba(0, 0, 0,0,5);
+        }
+
+        .sidebar:hover {
+            width: 200px;
+            transition: 0.6s ease;
+        }
+
+        .sidebar ul {
+            position: relative;
+            height: 97vh;
+        }
+
+        .sidebar ul li {
+            list-style: none;
+            margin: 5px 0;
+            font-family: 'Cambria', 'Cochin', Georgia, Times, 'Times New Roman', serif;
+        }
+
+        .sidebar ul li:hover {
+            background: rgb(137, 98, 142);
+            transition: 0.3s ease;
+        }
+
+        .sidebar ul li a {
+            position: relative;
+            display: flex;
+            white-space: nowrap;
+            text-decoration: none;
+        }
+
+        .sidebar ul li a .icon {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-width: 75px;
+            height: 60px;
+            font-size: 22px;
+        }
+
+        .sidebar ul li a .text {
+            position: relative;
+            display: flex;
+            align-items: center;
+            height: 60px;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            font-weight: 500;
+            color: #000000;
+        }
+
+
+        .quote p {
+            align-items: center;
+            justify-items: center;
+            margin-top: 20%;
+            margin-left: 30%;
+            font-size: 60px;
+        }
+
+        .author p {
+            margin-left: 40%;
+            font-size: 50px
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <ul>
+            <li> 
+                <!--Logoa ei ole, mutta lisätty kotisivun html kuten oli aiemmin sovittu-->
+                <a href="index.html" class="Home">
+                    <span class="icon"><i class="fa-solid fa-home" style="color: #ffffff;"></i></span>
+                </a>
+            </li>
+            <li>
+                <a href="index.html">
+                    <span class="icon"><i class="fa-solid fa-home"></i></span>
+                    <span class="text">Suunnittelu</span>
+                </a>
+            </li>
+            <li>
+                <a href="inspiration.html">
+                    <span class="icon"><i class="fa-solid fa-inspo"></i></span>
+                    <span class="text">Väripaletti</span>
+                </a>
+            </li>
+            <li>
+                <a href="quotes.html">
+                    <span class="icon"><i class="fa-solid fa-quotes"></i></span>
+                    <span class="text">Kuvatekstit</span>
+                </a>
+            </li>
+        </ul>
+    </div>  
+
+    <div class="quote">
+
+    <p>"If speaking kindly to plants <br>
+        helps them grow, imagine what <br>
+        speaking kindly to humans can do."</p>
+</div>
+
+<div class="author">
+
+<p>- Unknown</p>
+
+</div>
+<script src="script.js"></script>
+</body>
+</html>

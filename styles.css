@@ -1,0 +1,314 @@
+* {
+    box-sizing: border-box;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 100px;
+}
+
+h1 {
+    color: black;
+    font-family: "Dancing Script", cursive;
+    margin-bottom: 10px;
+    font-size: 120px;  
+    letter-spacing: 10px;
+}
+
+/*################################*/
+/*             NAVI               */
+/*################################*/
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 70px;
+    z-index: 1;
+    background-color: rgba(242, 178, 178, 0.778);
+    overflow-x: hidden;
+    padding-top: 10px;
+    transition: 0.6s ease;
+    box-shadow: 0 0 10px rgba(0, 0, 0,0,5);
+}
+
+.sidebar:hover {
+    width: 200px;
+    transition: 0.6s ease;
+}
+
+.sidebar ul {
+    position: relative;
+    height: 97vh;
+}
+
+.sidebar ul li {
+    list-style: none;
+    margin: 5px 0;
+    font-family: 'Cambria', 'Cochin', Georgia, Times, 'Times New Roman', serif;
+}
+
+.sidebar ul li:hover {
+    background: rgb(255, 255, 255);
+    transition: 0.3s ease;
+}
+
+.sidebar ul li a {
+    position: relative;
+    display: flex;
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+.sidebar ul li a .icon {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 75px;
+ 
+}
+
+.sidebar ul li a .text {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 60px;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    font-weight: 500;
+    color: #000000;
+}
+
+/*################################*/
+/*             ALAVALIKKO         */
+/*################################*/
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(242, 178, 178, 0.778);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    font-size: 20px;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f0efefdb;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+/*################################*/
+/*             MOBIILI NAVI       */
+/*################################*/
+  
+.hamburger {
+    display: none; /* Hide by default */
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: rgba(242, 178, 178, 0.778);
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.hamburger div {
+    width: 30px;
+    height: 4px;
+    background-color: black;
+    margin: 5px 0;
+    transition: 0.3s ease;
+}
+
+/* Piilottaa sidebar:in mobiilissa */
+@media screen and (min-width: 300px) and (max-width: 1024px) {
+    .sidebar {
+        display: none; /* piilottaa sidebaarin */
+    }
+
+    .sidebar.active {
+        display: block; /* Näyttää sidebaarin kun aktiivinen */
+        width: 200px; 
+        transition: 0.3s ease;
+    }
+
+    .hamburger {
+        display: block; /* Show the hamburger icon */
+    }
+}
+
+/*################################*/
+/*            TUMMA-TILA          */
+/*################################*/
+
+.dark-mode {
+    background-color: black;
+    color: aliceblue;  
+}
+
+#btn-dark {
+    position: fixed;
+    top: 20px;
+    right: 50px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 40%;
+    padding: 10px 30px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.dark-mode #btn-dark {
+    background-color: white; 
+    color: black; 
+}
+
+.dark-mode h1 {
+    color: aliceblue;
+}
+
+.dark-mode p{
+    color: aliceblue;
+}
+/*Alaotsikko*/
+p {
+    color: rgb(0, 0, 0);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-bottom: 40px;
+    font-size: 25px;  
+    text-align: center; /*Tämä tekee tekstistä ns. pyramidi-mallisen*/
+    /*position: relative;
+    top: 90px; tämä + "position: relative" laskee tekstin alas. Ilman sitä, toiminto ei toimi */
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+/*################################*/
+/*             STOORIT            */
+/*################################*/
+
+.story {
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(3, 1fr);
+}
+.story-item {
+    position: relative;
+}
+.story-label {
+    width: 80px;
+    height: 80px;
+    border: 1px solid rgb(186, 186, 186);
+    border-radius: 50%;
+    background-color: #40404084;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin: 5px;
+}
+
+
+/*################################*/
+/*             GALLERIA           */
+/*################################*/
+
+.Galleria {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 20px;
+    justify-items: center;
+    margin-bottom: 7%;
+}
+
+.gallery-item {
+    position: relative;
+}
+
+.img-label {
+    width: 230px;
+    height: 350px;
+    background-color: #40404084;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin: 2px;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.delete-btn {
+    display: none;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: rgba(221, 116, 116, 0.77);
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.story-item:hover .delete-btn, .gallery-item:hover .delete-btn {
+    display: block;
+}
+
+/*################################*/
+/*             FOOTER             */
+/*################################*/
+
+footer {
+    position:inherit;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(242, 178, 178, 0.778);
+}
+
+footer p{
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+}
