@@ -21,6 +21,17 @@ h1 {
     letter-spacing: 10px;
 }
 
+@media screen and (min-width: 300px) and (max-width: 1024px) {
+h1 {
+    font-size: 60px;
+    font-weight: bold;
+    }
+
+p {
+    font-size: 16px;
+}
+}
+
 /*################################*/
 /*             NAVI               */
 /*################################*/
@@ -296,17 +307,7 @@ input[type="file"] {
 .img-label {
     width: 120px;
     height: 150px;
-}
-
-h1 {
-    font-size: 60px;
-    font-weight: bold;
-    }
-
-p {
-    font-size: 16px;
-}
-}
+}}
 
 /*################################*/
 /*             FOOTER             */
